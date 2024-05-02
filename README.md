@@ -3,7 +3,7 @@
 
 ## Overview
 
-This project focuses on the analysis of source separation results using the Source to Distortion Ratio (SDR) metric, as defined by [here](https://ieeexplore.ieee.org/document/1643671). The goal is to evaluate the performance of two different source separation algorithms: Demucs and Wave-U-Net, on the MUSDBHQ dataset.
+This project focuses on the analysis of source separation results using the Source to Distortion Ratio (SDR) metric, as defined [here](https://ieeexplore.ieee.org/document/1643671). The goal is to evaluate the performance of two different source separation algorithms: Demucs and Wave-U-Net, on the MUSDBHQ dataset.
 
 ### Demucs Separation
 The Demucs algorithm, developed by Facebook AI Research, is a deep learning-based source separation method known for its effectiveness in isolating individual sound sources from a mixture. In this project, we utilize Demucs to separate the audio sources (such as vocals, bass, drums, and others) from the music mixtures present in the MUSDBHQ dataset's test portion.
