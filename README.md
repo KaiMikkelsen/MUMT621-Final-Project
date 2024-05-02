@@ -50,6 +50,11 @@ pip install -r requirements.txt
 
 5. Execute the various commands in `wave-u-net-pytorch.ipynb` and `demucs.ipynb` depending on whether you wish to perform separation or write results to a CSV file.
 
+## Results
+
+You can find the calculated SDR values for each song in the demucs_output.csv and wave-u-net-pytorch_output.csv files. These files display the SDR values for vocals, bass, and drums categories, along with their respective median and average values.
+
+
 ## References
 
 - [1] Vincent, Emmanuel, et al. "Performance measurement in blind audio source separation." IEEE Transactions on Audio, Speech, and Language Processing 14.4 (2006): 1462-1469.
