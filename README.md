@@ -1,18 +1,21 @@
+
 # MUMT621 Final Project: Source Separation Results Analysis
 
 ## Overview
 
-This code calculates the Source to Distortion Ratio (SDR) as defined by Vincent et al. (available [here](https://inria.hal.science/inria-00544230/document)).
+This project focuses on the analysis of source separation results using the Source to Distortion Ratio (SDR) metric, as defined by Vincent et al. The goal is to evaluate the performance of two different source separation algorithms: Demucs and Wave-U-Net, on the MUSDBHQ dataset.
 
 ### Demucs Separation
-The notebook `demucs.ipynb` orchestrates the execution of the [demucs](https://github.com/facebookresearch/demucs) source separation algorithm on the test portion of the [MUSDBHQ](https://sigsep.github.io/datasets/musdb.html#musdb18-compressed-stems) dataset. It subsequently computes the SDR on the separated .wav files for the 'other', bass, vocals, and drums categories.
+The Demucs algorithm, developed by Facebook AI Research, is a deep learning-based source separation method known for its effectiveness in isolating individual sound sources from a mixture. In this project, we utilize Demucs to separate the audio sources (such as vocals, bass, drums, and others) from the music mixtures present in the MUSDBHQ dataset's test portion.
 
-The output of `demucs.ipynb` is stored in `demucs_output.csv`, containing the calculated SDRs for each song's 'other', bass, vocals, and drum categories, along with their average and median values.
+The notebook [`demucs.ipynb`](demucs.ipynb) orchestrates the execution of the Demucs algorithm on the test dataset. It carries out the necessary preprocessing steps, applies the separation algorithm, and then evaluates the quality of separation using the SDR metric. The SDR is computed for each individual source category (e.g., vocals, bass, drums) as well as for the overall mixture. The resulting SDR values are aggregated and analyzed to assess the performance of Demucs across different source types.
 
 ### Wave-U-Net Separation
-The notebook `wave-u-net-pytorch.ipynb` facilitates the execution of the [Wave-U-Net Pytorch implementation](https://github.com/f90/Wave-U-Net-Pytorch) source separation algorithm on the test portion of the [MUSDBHQ](https://sigsep.github.io/datasets/musdb.html#musdb18-compressed-stems) dataset. It then computes the SDR on the separated .wav files for the 'other', bass, vocals, and drums categories.
+Wave-U-Net is another deep learning-based source separation model, known for its ability to perform waveform-based audio source separation. Unlike traditional methods that operate in the spectral domain, Wave-U-Net operates directly on raw audio waveforms, enabling more accurate separation of sources. In this project, we employ the [Wave-U-Net Pytorch implementation](https://github.com/f90/Wave-U-Net-Pytorch) to perform source separation on the MUSDBHQ dataset.
 
-The output of `wave-u-net-pytorch.ipynb` is stored in `wave-u-net-pytorch_output.csv`, containing the calculated SDRs for each song's 'other', bass, vocals, and drum categories, along with their average and median values.
+The notebook [`wave-u-net-pytorch.ipynb`](wave-u-net-pytorch.ipynb) facilitates the execution of the Wave-U-Net algorithm on the test dataset. Similar to the Demucs workflow, it preprocesses the audio data, applies the separation model, and evaluates the quality of separation using the SDR metric. The SDR values are computed for each source category and aggregated to provide insights into the performance of Wave-U-Net across different types of audio sources.
+
+By comparing the results obtained from Demucs and Wave-U-Net, this project aims to provide a comprehensive analysis of the strengths and weaknesses of each algorithm in the context of source separation tasks. Additionally, it seeks to contribute to the broader understanding of deep learning-based audio processing techniques and their applicability in real-world scenarios.
 
 ## Usage
 
@@ -49,6 +52,7 @@ pip install -r requirements.txt
 
 ## References
 
+- [1] Vincent, Emmanuel, et al. "Performance measurement in blind audio source separation." IEEE Transactions on Audio, Speech, and Language Processing 14.4 (2006): 1462-1469.
 - Paths to repositories and documents:
   - Wave-U-Net repository
   - Demucs repository
